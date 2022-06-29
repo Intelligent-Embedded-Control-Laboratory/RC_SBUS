@@ -6,6 +6,7 @@
 目前經過測試後，支援的晶片：
 * Teensy 3.2
 * ESP32 NodeMCU-32S
+![nodemcu-32s-eps32-pinout](https://user-images.githubusercontent.com/91120147/176430811-2b2828b2-d854-4221-850a-9b14144b662f.jpeg)
 [圖片來源：https://hk.botsheet.com/product/nodemcu-32s-eps32/]
 
 ## 傳輸協議：
