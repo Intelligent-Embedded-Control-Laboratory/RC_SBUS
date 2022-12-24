@@ -1,4 +1,4 @@
-#include "SBUS.h"
+#include "sbus.h"
 
 namespace IEC
 {
