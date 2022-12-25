@@ -128,25 +128,23 @@
 #include <Arduino.h>
 #include <sbus.h>
 
-SBUS SBus(Serial1);
+IEC::SBUS RC(&Serial1);
+uint16_t RC_Channel[16];
 
 void setup()
 {
     Serial.begin(115200);
-    SBus.begin();
+    RC.begin();
 }
 
 void loop()
 {
-    uint16_t RC_Channel[16];
-
-    int isUpdated = SBus.read(RC_Channel);
+    int isUpdated = RC.read(RC_Channel);
     if (isUpdated == 1)
     {
         for (int i = 0; i < 16; i++)
         {
-            Serial.print(RC_Channel[i]);
-            Serial.print(" ");
+            Serial.print(String() + RC_Channel[i] + " ");
         }
         Serial.println();
     }
