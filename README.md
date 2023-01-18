@@ -122,35 +122,6 @@
 - 硬體腳位：
   以 ESP32 NodeMCU-32S 為例：
   將 receiver 的訊號腳位接到 Serial1 的 Rx1 (GPIO9)，電源線接電源腳位，接地線接接地腳位。
-- 範例程式碼：
-
-```cpp
-#include <Arduino.h>
-#include <sbus.h>
-
-IEC::SBUS RC(&Serial1);
-uint16_t RC_Channel[16];
-
-void setup()
-{
-    Serial.begin(115200);
-    RC.begin();
-}
-
-void loop()
-{
-    int isUpdated = RC.read(RC_Channel);
-    if (isUpdated == 1)
-    {
-        for (int i = 0; i < 16; i++)
-        {
-            Serial.print(String() + RC_Channel[i] + " ");
-        }
-        Serial.println();
-    }
-
-    delay(1);
-}
-```
+- 範例程式碼：請參考 `example_utility`
 
 - 注意事項：根據經驗，在燒錄 ESP32 時，似乎 Rx1 腳位不能有接收到訊號。因此建議在燒錄失敗時，先把 receiver 拔掉，等待燒錄成功後，再把它燒錄進去。
