@@ -1,0 +1,29 @@
+#include <Arduino.h>
+#include <sbus.h>
+
+IEC::SBUS sbus;
+uint16_t sbus_data[16] = {0};
+
+void setup()
+{
+    // Begin USB serial communication
+    Serial.begin(115200);
+
+    // Begin SBus data streaming
+    sbus.begin();
+}
+
+void loop()
+{
+    // Pooling sbus data stream
+    if (sbus.read(sbus_data) == 1)
+    {
+        for (auto &c : sbus_data)
+        {
+            Serial.print(c);
+            Serial.print(" ");
+        }
+        Serial.println();
+        Serial.flush();
+    }
+}
