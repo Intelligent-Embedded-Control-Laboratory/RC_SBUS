@@ -5,7 +5,7 @@
 #define HW_SERIAL_INTERFACE_SBUS Serial1
 
 IEC::SBUS sbus(HW_SERIAL_INTERFACE_SBUS);
-uint16_t sbus_data[16] = {0};
+uint16_t rc[16] = {0};
 
 void setup()
 {
@@ -19,9 +19,9 @@ void setup()
 void loop()
 {
     // Pooling sbus data stream
-    if (sbus.read(sbus_data) == 1)
+    if (sbus.read(rc) == 1)
     {
-        for (auto &c : sbus_data)
+        for (auto &c : rc)
         {
             Serial.print(c);
             Serial.print(" ");
