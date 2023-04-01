@@ -24,6 +24,7 @@ public:
     SBUS(HardwareSerial &_rSerial)
     {
         pSerial = &_rSerial;
+        int  a = 1;
     }
     SBUS(HardwareSerial *_pSerial)
     {
